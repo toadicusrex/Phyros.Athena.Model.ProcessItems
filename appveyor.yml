@@ -7,6 +7,5 @@ nuget:
   disable_publish_on_pr: false
 build_script:
 - ps: ./build.ps1
-test: off
 deploy_script:
 - ps: ./build.ps1 Pack
