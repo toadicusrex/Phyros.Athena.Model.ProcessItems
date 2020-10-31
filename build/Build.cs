@@ -31,6 +31,12 @@ class Build : NukeBuild
 	[Parameter("Configuration to build - Default is 'Debug' (local) or 'Release' (server)")]
 	readonly Configuration Configuration = IsLocalBuild ? Configuration.Debug : Configuration.Release;
 
+	[Parameter("Nuget Version Prefix")]
+	readonly string NugetVersionPrefix = "0.0.1";
+
+	[Parameter("Nuget Version Suffix")]
+	readonly string NugetVersionSuffix = String.Empty;
+
 	[Solution] readonly Solution Solution;
 	[GitRepository] readonly GitRepository GitRepository;
 
@@ -66,6 +72,7 @@ class Build : NukeBuild
 
 	Target Pack => _ => _
 		.DependsOn(Compile)
+		.Produces(ArtifactsDirectory / "*.nupkg")
 		.Executes(() =>
 		{
 			DotNetPack(s => s
@@ -76,6 +83,9 @@ class Build : NukeBuild
 				.SetDescription("ProcessItem interfaces for Phyros Athena Workflow.")
 				.SetPackageTags("BPMN BPM Phyros Athena Workflow")
 				.SetNoDependencies(true)
-				.SetOutputDirectory(ArtifactsDirectory / "nuget"));
+				.SetOutputDirectory(ArtifactsDirectory / "nuget")
+				.SetVersionPrefix(NugetVersionPrefix)
+				.SetVersionSuffix(NugetVersionSuffix)
+				);
 		});
 }
