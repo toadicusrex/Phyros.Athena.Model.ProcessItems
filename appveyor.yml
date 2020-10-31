@@ -8,4 +8,4 @@ nuget:
 build_script:
 - ps: ./build.ps1
 deploy_script:
-- ps: ./build.ps1 Pack -NugetVersionPrefix '0.1.$env:APPVEYOR_BUILD_NUMBER'  -NugetVersionSuffix alpha
+- ps: ./build.ps1 Pack -NugetVersionPrefix 0.1.$env:APPVEYOR_BUILD_NUMBER  -NugetVersionSuffix alpha
