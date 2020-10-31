@@ -84,7 +84,7 @@ class Build : NukeBuild
 				.SetPackageTags("BPMN BPM Phyros Athena Workflow")
 				.SetNoDependencies(true)
 				.SetOutputDirectory(ArtifactsDirectory / "nuget")
-				.SetVersionPrefix(NugetVersionPrefix)
+				.SetVersion(NugetVersionPrefix)
 				.SetVersionSuffix(NugetVersionSuffix)
 				);
 		});
