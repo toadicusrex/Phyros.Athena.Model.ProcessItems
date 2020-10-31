@@ -94,4 +94,24 @@ class Build : NukeBuild
 				.SetVersionSuffix(NugetVersionSuffix)
 				);
 		});
+
+	Target Push => _ => _
+		.DependsOn(Pack)
+		.Requires(() => NugetApiUrl)
+		.Requires(() => NugetApiKey)
+		.Requires(() => Configuration.Equals(Configuration.Release))
+		.Executes(() =>
+		{
+			GlobFiles(ArtifactsDirectory, "*.nupkg")
+				.NotEmpty()
+				.Where(x => !x.EndsWith("symbols.nupkg"))
+				.ForEach(x =>
+				{
+					DotNetNuGetPush(s => s
+						.SetTargetPath(x)
+						.SetSource(NugetApiUrl)
+						.SetApiKey(NugetApiKey)
+					);
+				});
+		});
 }
