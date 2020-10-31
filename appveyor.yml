@@ -1,10 +1,10 @@
 version: 0.1.{build}
 image: Ubuntu
-do_not_increment_build_number: false
 branches:
   only:
   - master
-disable_publish_on_pr: false
+nuget:
+  disable_publish_on_pr: false
 build_script:
 - ps: ./build.ps1
 test: off
