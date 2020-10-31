@@ -1,7 +1,8 @@
 version: 0.1.{build}
 image: Ubuntu
-NugetApiKey:
-  secure: w5dws55jd0sfp849n6l9d4aq 
+environment:
+  NugetApiKey:
+    secure: w5dws55jd0sfp849n6l9d4aq 
 branches:
   only:
   - master
