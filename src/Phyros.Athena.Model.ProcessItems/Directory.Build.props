@@ -1,0 +1,10 @@
+﻿<Project>
+	<PropertyGroup>
+		<Authors>Your Name</Authors>
+		<RepositoryUrl>https://github.com/toadicusrex/Phyros.Athena.Model.Workflow.ProcessItems</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/toadicusrex/Phyros.Athena.Model.Workflow.ProcessItems</PackageProjectUrl>
+		<PackageLicense>https://github.com/toadicusrex/Phyros.Athena.Model.Workflow.ProcessItems/blob/master/LICENSE</PackageLicense>
+		<VersionPrefix>0.1.1</VersionPrefix>
+		<VersionSuffix>alpha</VersionSuffix>
+	</PropertyGroup>
+</Project>

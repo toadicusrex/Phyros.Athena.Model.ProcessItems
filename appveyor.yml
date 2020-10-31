@@ -1,23 +1,19 @@
 version: 0.1.{build}
-image: Visual Studio 2019
-dotnet_csproj:
-  patch: true
-  file: '**\*.csproj'
-  version: '{version}'
-  version_prefix: '{version}'
-  package_version: '{version}'
-  assembly_version: '{version}'
-  file_version: '{version}'
-  informational_version: '{version}'
+image: Ubuntu
+environment:
+MyGetApiKey:
+    secure: 56nW3KcP4naYX9mlsVEIKLj5xPdfmpt6lMALR6wQmorRQOaoUOtlwMZ2V0BtGTAM
+NugetApiKey:
+    secure: /54XAunyBETRa1Fp/qSrwvebSnTAcHDO2OVZ+exMtQtOtrBzHKvp4RC1AB8RD2PQ
+pull_requests:
+do_not_increment_build_number: false
+branches:
+  only:
+  - master
 nuget:
-  account_feed: true
-  project_feed: true
-before_build:
-- cmd: nuget restore src
-build:
-  project: src
-  publish_nuget: true
-  publish_nuget_symbols: true
-  use_snupkg_format: true
-  include_nuget_references: true
-  verbosity: minimal
+disable_publish_on_pr: false
+build_script:
+- ps: ./build.ps1
+test: off
+deploy_script:
+- ps: ./build.ps1 Pack
