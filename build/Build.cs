@@ -82,12 +82,12 @@ class Build : NukeBuild
 		.Executes(() =>
 		{
 			DotNetPack(s => s
-				.SetProject(Solution.GetProject("Phyros.Athena.Model.ProcessItems"))
+				.SetProject(Solution.GetProject("Phyros.Athena.Model.Workflow.ProcessItems"))
 				.SetConfiguration(Configuration)
 				.EnableNoBuild()
 				.EnableNoRestore()
-				.SetDescription("ProcessItem interfaces for Phyros Athena Workflow.")
-				.SetPackageTags("BPMN BPM Phyros Athena Workflow")
+				.SetDescription("ProcessItem model interfaces for Phyros Athena Workflow.")
+				.SetPackageTags("BPMN BPM Phyros Athena Workflow ProcessItem")
 				.SetNoDependencies(true)
 				.SetOutputDirectory(ArtifactsDirectory)
 				.SetVersionPrefix(NugetVersionPrefix)
