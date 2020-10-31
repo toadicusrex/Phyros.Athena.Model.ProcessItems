@@ -37,6 +37,12 @@ class Build : NukeBuild
 	[Parameter("Nuget Version Suffix")]
 	readonly string NugetVersionSuffix = String.Empty;
 
+	[Parameter] 
+	string NugetApiUrl = "https://api.nuget.org/v3/index.json"; //default
+
+	[Parameter] 
+	string NugetApiKey;
+
 	[Solution] readonly Solution Solution;
 	[GitRepository] readonly GitRepository GitRepository;
 
@@ -83,7 +89,7 @@ class Build : NukeBuild
 				.SetDescription("ProcessItem interfaces for Phyros Athena Workflow.")
 				.SetPackageTags("BPMN BPM Phyros Athena Workflow")
 				.SetNoDependencies(true)
-				.SetOutputDirectory(ArtifactsDirectory / "nuget")
+				.SetOutputDirectory(ArtifactsDirectory)
 				.SetVersionPrefix(NugetVersionPrefix)
 				.SetVersionSuffix(NugetVersionSuffix)
 				);
