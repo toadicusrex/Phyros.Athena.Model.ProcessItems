@@ -1,10 +1,5 @@
 version: 0.1.{build}
 image: Ubuntu
-environment:
-MyGetApiKey:
-    secure: 56nW3KcP4naYX9mlsVEIKLj5xPdfmpt6lMALR6wQmorRQOaoUOtlwMZ2V0BtGTAM
-NugetApiKey:
-    secure: /54XAunyBETRa1Fp/qSrwvebSnTAcHDO2OVZ+exMtQtOtrBzHKvp4RC1AB8RD2PQ
 pull_requests:
 do_not_increment_build_number: false
 branches:
