@@ -2,6 +2,8 @@ version: 0.1.{build}
 image: Ubuntu
 environment:
   NugetApiKey: 6e01b1be-4aa2-445d-bd6e-036fa77e600c
+install:
+  - nuget sources add -Name MyGetFeed -Source https://www.myget.org/F/phyros/api/v3/index.json
 branches:
   only:
   - master
